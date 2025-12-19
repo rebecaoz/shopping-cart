@@ -1,7 +1,7 @@
 "use client"
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, Typography } from '@mui/material'
+import Button from '@mui/material/Button';
 import { Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react"
 import { useCart } from "@/hooks/use-cart"
 
@@ -25,11 +25,11 @@ export function ShoppingCart({ isOpen, onClose }: ShoppingCartProps) {
           <Card className="fixed top-0 right-0 h-full w-full md:w-96 z-50 rounded-none border-0 flex flex-col">
             <CardHeader className="border-b">
               <div className="flex items-center justify-between">
-                <CardTitle className="flex items-center gap-2">
+                <Typography className="flex items-center gap-2">
                   <ShoppingBag className="w-5 h-5" />
                   Carrito ({totalItems})
-                </CardTitle>
-                <Button variant="ghost" size="icon" onClick={onClose}>
+                </Typography>
+                <Button variant="outlined" onClick={onClose}>
                   <X className="w-5 h-5" />
                 </Button>
               </div>
@@ -54,8 +54,8 @@ export function ShoppingCart({ isOpen, onClose }: ShoppingCartProps) {
                         <p className="text-sm font-bold mb-2">${item.price.toFixed(2)}</p>
                         <div className="flex items-center gap-2">
                           <Button
-                            variant="outline"
-                            size="icon"
+                            variant="outlined"
+                         
                             className="h-7 w-7 bg-transparent"
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
                           >
@@ -63,16 +63,16 @@ export function ShoppingCart({ isOpen, onClose }: ShoppingCartProps) {
                           </Button>
                           <span className="text-sm font-medium w-8 text-center">{item.quantity}</span>
                           <Button
-                            variant="outline"
-                            size="icon"
+                            variant="outlined"
+                    
                             className="h-7 w-7 bg-transparent"
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
                           >
                             <Plus className="w-3 h-3" />
                           </Button>
                           <Button
-                            variant="ghost"
-                            size="icon"
+                            color="secondary"
+                            sx={{ minWidth: 'auto', p: 0 }}
                             className="h-7 w-7 ml-auto"
                             onClick={() => removeFromCart(item.id)}
                           >
@@ -91,10 +91,10 @@ export function ShoppingCart({ isOpen, onClose }: ShoppingCartProps) {
                   <span>Total:</span>
                   <span>${totalPrice.toFixed(2)}</span>
                 </div>
-                <Button className="w-full" size="lg">
+                <Button className="w-full">
                   Proceder al Pago
                 </Button>
-                <Button variant="outline" className="w-full bg-transparent" onClick={clearCart}>
+                <Button variant="outlined" className="w-full bg-transparent" onClick={clearCart}>
                   Vaciar Carrito
                 </Button>
               </div>

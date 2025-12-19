@@ -1,7 +1,7 @@
 "use client"
 
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { Card, CardContent } from '@mui/material'
+import Button from '@mui/material/Button';
 import { ShoppingCart } from "lucide-react"
 import type { Product } from "@/context/cart-context"
 import { useCart } from "@/hooks/use-cart"
@@ -26,7 +26,7 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
         <div className="flex items-center justify-between gap-2">
           <span className="text-2xl font-bold text-foreground">${product.price.toFixed(2)}</span>
-          <Button onClick={() => addToCart(product)} size="sm" className="gap-2">
+          <Button onClick={() => addToCart(product)} className="gap-2">
             <ShoppingCart className="w-4 h-4" />
             Agregar
           </Button>

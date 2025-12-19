@@ -1,7 +1,7 @@
 "use client"
 
 import { ShoppingBag, Store } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import Button from "@mui/material/Button"
 import { useCart } from "@/hooks/use-cart"
 
 interface NavbarProps {
@@ -13,7 +13,7 @@ export function Navbar({ onCartClick }: NavbarProps) {
   const totalItems = getTotalItems()
 
   return (
-    <header className="border-b bg-card sticky top-0 z-30 backdrop-blur-sm bg-card/95">
+    <header className="border-b bg-card sticky top-0 z-30 backdrop-blur-sm">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -24,7 +24,7 @@ export function Navbar({ onCartClick }: NavbarProps) {
             </div>
           </div>
 
-          <Button variant="outline" size="lg" className="relative bg-transparent" onClick={onCartClick}>
+          <Button variant="contained" className="relative bg-transparent" onClick={onCartClick}>
             <ShoppingBag className="w-5 h-5" />
             {totalItems > 0 && (
               <span className="absolute -top-2 -right-2 bg-destructive text-destructive-foreground rounded-full min-w-6 h-6 px-1.5 flex items-center justify-center text-xs font-bold">

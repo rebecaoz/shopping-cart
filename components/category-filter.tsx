@@ -1,6 +1,6 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
+import Button from '@mui/material/Button';
 import { useFetch } from "@/hooks/use-fetch"
 
 interface CategoryFilterProps {
@@ -14,7 +14,7 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
   if (loading) {
     return (
       <div className="flex gap-2 flex-wrap">
-        <Button variant="outline" disabled>
+        <Button variant="outlined" disabled>
           Cargando...
         </Button>
       </div>
@@ -23,13 +23,13 @@ export function CategoryFilter({ selectedCategory, onCategoryChange }: CategoryF
 
   return (
     <div className="flex gap-2 flex-wrap">
-      <Button variant={selectedCategory === "all" ? "default" : "outline"} onClick={() => onCategoryChange("all")}>
+      <Button variant={selectedCategory === "all" ? "contained" : "outlined"} onClick={() => onCategoryChange("all")}>
         Todos
       </Button>
       {categories?.map((category) => (
         <Button
           key={category}
-          variant={selectedCategory === category ? "default" : "outline"}
+          variant={selectedCategory === category ? "contained" : "outlined"}
           onClick={() => onCategoryChange(category)}
           className="capitalize"
         >
